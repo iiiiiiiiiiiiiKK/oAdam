@@ -1,4 +1,4 @@
-这里为您准备了一份专业、详尽的 README 文档，涵盖了项目介绍、核心功能、技术栈、安装配置及部署指南。您可以直接复制用于 GitHub 仓库。
+这是一个完整的 README 文档，直接以 Markdown 代码块形式展示，您可以直接复制。
 # 🌌 Crypto Tactical Terminal V60 (@oAdam Edition)
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
