@@ -1,135 +1,282 @@
-这是一个完整的 README 文档，直接以 Markdown 代码块形式展示，您可以直接复制。
-# 🌌 Crypto Tactical Terminal V60 (@oAdam Edition)
+```markdown
+# V56 Terminal - 加密货币交易终端仪表板
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![React](https://img.shields.io/badge/React-18.x-61DAFB.svg)
-![Vite](https://img.shields.io/badge/Vite-5.x-646CFF.svg)
-![Firebase](https://img.shields.io/badge/Firebase-Firestore-FFCA28.svg)
-![Style](https://img.shields.io/badge/Style-Cyberpunk%2FPixel-ff003c.svg)
+## 概述
 
-**Crypto Tactical Terminal** 是一个基于 React 构建的极客风格加密货币战术终端。它集成了实时行情、链上巨鲸追踪、持仓模拟计算、AI 技术分析以及多端云同步功能。专为移动端优化的响应式设计，提供类似原生 App 的沉浸式体验。
+V56 Terminal 是一个功能齐全的加密货币交易终端仪表板，专为交易者和投资者设计。它集成了实时市场数据、持仓管理、技术分析、巨鲸追踪和多种实用工具于一体，提供专业级的交易监控体验。
 
----
+## ✨ 核心功能
 
-## ✨ 核心功能 (Key Features)
+### 📊 实时市场数据
+- **多交易所支持**：Binance、OKX、CoinGecko 数据源
+- **实时价格更新**：WebSocket 连接实现毫秒级价格更新
+- **市场指标**：资金费率、恐惧贪婪指数、多空比、持仓量等
+- **宏观经济**：DXY美元指数、黄金价格、USDT汇率
 
-### 📊 市场监控与分析
-* **实时行情**: 支持 Binance (WebSocket), OKX (WebSocket), CoinGecko (Polling) 多源切换。
-* **K线图表**: 集成 TradingView Widget，支持暗黑/明亮模式切换。
-* **AI 深度扫描**: 自动计算 RSI, BOLL, MA 趋势，提供买卖信号与止盈止损位建议。
-* **资金流向**: 可视化展示最近 10 天的 Net Taker Buy (主动买入) 资金流。
+### 🎯 持仓管理
+- **多空持仓监控**：实时计算未实现盈亏
+- **风险控制**：自动计算清算价格和风险等级
+- **杠杆调节**：自定义杠杆倍数（1-100x）
+- **钱包管理**：实时净值追踪
 
-### 🐋 Hyperliquid 巨鲸追踪 (Whale Tracker)
-* **实时监控**: 追踪指定钱包在 Hyperliquid 上的持仓、未结盈亏 (uPnL)、杠杆和爆仓价。
-* **批量导入**: 支持文本批量导入钱包地址（格式：`地址 备注`）。
-* **智能交互**: 
-    * 点击地址跳转 Hyperliquid 详情页。
-    * 列表支持横向/纵向滑动，表头 (Sticky Header) 吸附。
-    * 移动端优化的删除操作（独立操作列）。
+### 🤖 智能分析系统
+- **技术指标**：RSI、BOLL、ATR、移动平均线
+- **AI分析**：每小时/4小时/日线级别深度扫描
+- **策略矩阵**：自动生成支撑阻力位和交易建议
+- **净资金流**：10日资金流向可视化
 
-### ☁️ 云端同步与多设备协同 (Cloud Sync)
-* **Firebase 集成**: 基于 Firestore 实现毫秒级数据同步。
-* **无缝漫游**: 在桌面端录入持仓，手机端即时可见。只需输入相同的 `Cloud Key`。
-* **数据持久化**: 防止浏览器缓存清除导致的数据丢失。
+### 🐋 巨鲸追踪
+- **Hyperliquid 监控**：实时追踪巨鲸持仓
+- **批量导入**：支持单地址或批量导入监控列表
+- **Telegram 集成**：支持通过TG Bot添加监控地址
+- **持仓详情**：方向、杠杆、盈亏、清算价等
 
-### 🧮 战术模拟 (Tactical Sim)
-* **持仓推演**: 输入模拟价格和仓位，自动计算新的均价 (Avg Price) 和 强平价 (Liq Price)。
-* **网格策略**: 自动生成基于当日开盘价的支撑/阻力网格。
-* **OCR 识别**: 支持上传持仓截图，自动识别价格和数量（基于 Tesseract.js）。
+### 📈 图表与可视化
+- **TradingView 集成**：专业级K线图表
+- **周期回报热力图**：季度/月度/周度/日度回报可视化
+- **净资金流图表**：资金流向柱状图
 
-### 📱 移动端极致体验
-* **原生级交互**: 禁止双指缩放 (`user-scalable=no`)，防止误触。
-* **自适应布局**: 完美适配各种尺寸的手机屏幕。
+### 🔧 实用工具
+- **OCR识别**：截图识别交易订单（价格、数量）
+- **截图功能**：全屏/模块截图
+- **云同步**：Firebase 数据同步
+- **主题切换**：深色/浅色/像素风格
 
----
+## 🛠 技术栈
 
-## 🛠️ 技术栈 (Tech Stack)
+### 前端框架
+- **React 18**：函数组件 + Hooks
+- **状态管理**：useState, useEffect, useMemo, useRef
 
-* **前端框架**: React 18, Vite
-* **样式**: CSS Variables (支持 Pixel/Dark/Light 三种主题切换)
-* **后端服务**: Firebase (Auth & Firestore)
-* **工具库**: 
-    * `html2canvas`: 界面截图生成
-    * `tesseract.js`: 光学字符识别 (OCR)
-    * TradingView Lightweight Charts
+### 数据服务
+- **WebSocket**：实时价格数据
+- **Firebase**：身份验证 + Firestore 数据库
+- **REST APIs**：Binance、OKX、CoinGecko、Hyperliquid
 
----
+### 第三方库
+- **TradingView**：专业图表
+- **Tesseract.js**：OCR识别
+- **html2canvas**：网页截图
+- **Firebase SDK**：云服务
 
-## 🚀 快速开始 (Quick Start)
+### 样式与UI
+- **CSS-in-JS**：动态主题系统
+- **响应式设计**：移动端优先
+- **自定义字体**：TechMono 字体族
 
-### 1. 环境准备
-确保您的环境已安装 [Node.js](https://nodejs.org/) (推荐 v18+)。
+## 🚀 快速开始
 
-### 2. 克隆项目
+### 环境要求
+- Node.js 16+
+- npm 或 yarn
+- 现代浏览器（Chrome 90+, Firefox 88+）
+
+### 安装步骤
+
+1. **克隆项目**
+   ```bash
+   git clone <repository-url>
+   cd v56-terminal
+```
+
+1. 安装依赖
+   ```bash
+   npm install
+   # 或
+   yarn install
+   ```
+2. 配置环境变量
+   在 public/index.html 中添加全局配置：
+   ```html
+   <script>
+     window.__app_id = 'your-app-id';
+     window.__firebase_config = JSON.stringify({
+       apiKey: "YOUR_API_KEY",
+       authDomain: "YOUR_AUTH_DOMAIN",
+       projectId: "YOUR_PROJECT_ID",
+       storageBucket: "YOUR_STORAGE_BUCKET",
+       messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+       appId: "YOUR_APP_ID"
+     });
+     window.__initial_auth_token = "OPTIONAL_AUTH_TOKEN";
+   </script>
+   ```
+3. 运行开发服务器
+   ```bash
+   npm start
+   # 或
+   yarn start
+   ```
+4. 构建生产版本
+   ```bash
+   npm run build
+   # 或
+   yarn build
+   ```
+
+⚙️ 配置说明
+
+Firebase 配置
+
+项目使用 Firebase 实现：
+
+· 匿名/自定义令牌认证
+· Firestore 数据同步
+· 用户设置云存储
+
+API 密钥配置
+
+· Telegram Bot：用于推送通知和地址监控
+· CORS Proxy：可选的代理设置（默认启用）
+· 自定义数据源：支持添加外部API源
+
+主题配置
+
+三种预设主题：
+
+1. 深色主题：默认，适合夜间交易
+2. 浅色主题：适合日间使用
+3. 像素主题：复古风格
+
+📱 模块详解
+
+1. 核心监控面板 (CORE MONITOR)
+
+· 实时盈亏计算
+· 净值监控
+· 风险等级指示器
+· 清算价格预警
+
+2. 策略矩阵 (STRATEGY MATRIX)
+
+· 基于当前价格的支撑阻力位
+· 自动生成交易建议
+· 点击即可加载到模拟器
+
+3. AI技术分析
+
+· 多时间框架分析（1H/4H/1D）
+· 技术指标综合评估
+· 交易信号生成
+· 入场/止损/目标价建议
+
+4. 巨鲸追踪器
+
+· Hyperliquid 平台巨鲸实时监控
+· 持仓变化警报
+· 批量地址管理
+· Telegram 集成添加
+
+5. 周期回报热力图
+
+· 季度/月度/周度/日度回报可视化
+· 颜色编码（绿色盈利/红色亏损）
+· 多币种对比（BTC/ETH/SOL）
+
+🔐 安全特性
+
+数据安全
+
+· 本地存储加密：敏感数据本地加密存储
+· 云同步可选：用户可选择启用/禁用云同步
+· 匿名认证：默认使用Firebase匿名认证
+
+隐私保护
+
+· 无用户数据分析：不收集用户交易数据
+· 自托管选项：所有代码可自托管
+· API密钥本地存储：不发送到第三方服务器
+
+📱 移动端优化
+
+响应式设计
+
+· 自适应屏幕尺寸
+· 移动端触摸优化
+· 底部导航栏
+
+性能优化
+
+· 图片懒加载
+· WebSocket 连接复用
+· 数据缓存机制
+
+🔄 数据流
+
+```
+用户界面 ↔ React组件 ↔ 状态管理
+      ↓
+WebSocket/REST API ↔ 外部数据源
+      ↓
+Firebase ↔ 云同步
+      ↓
+LocalStorage ↔ 本地缓存
+```
+
+🧪 测试与开发
+
+开发模式
+
 ```bash
-git clone [https://github.com/your-username/crypto-terminal-v60.git](https://github.com/your-username/crypto-terminal-v60.git)
-cd crypto-terminal-v60
+# 启动开发服务器
+npm start
 
-3. 安装依赖
-npm install
-# 确保安装 firebase
-npm install firebase
+# 运行测试
+npm test
 
-4. 配置 Firebase
-在 src/App.jsx (或 src/firebaseConfig.js) 中填入您的 Firebase 配置信息。
- * 前往 Firebase Console 创建项目。
- * 启用 Authentication (选择匿名登录 Anonymous)。
- * 启用 Firestore Database (选择测试模式 Test Mode 以允许读写)。
- * 在项目设置中获取 firebaseConfig 对象。
-<!-- end list -->
-// src/App.jsx 顶部
-const firebaseConfig = {
-  apiKey: "AIzaSy...",
-  authDomain: "your-app.firebaseapp.com",
-  projectId: "your-app-id",
-  storageBucket: "your-app.appspot.com",
-  messagingSenderId: "...",
-  appId: "..."
-};
+# 构建分析
+npm run build -- --analyze
+```
 
-5. 启动开发服务器
-npm run dev
+代码质量
 
-访问终端显示的本地地址 (通常为 http://localhost:5173)。
-📦 部署指南 (Deployment)
-本项目完全静态化，推荐使用 Vercel 进行一键部署。
- * 将代码推送到 GitHub 仓库。
- * 登录 Vercel，点击 Add New Project。
- * 导入你的 GitHub 仓库。
- * Framework Preset 选择 Vite。
- * 点击 Deploy。
-⚠️ 注意事项:
- * 部署后，请务必去 Firebase Console -> Authentication -> Settings -> Authorized domains 中添加 Vercel 分配的域名，否则云同步功能将无法登录。
-📖 使用说明 (Usage Guide)
-1. 开启云同步
-点击底部 Dock 栏的 ⚙️ (设置) 图标，在 CLOUD SYNC 输入框中设置一个密钥（例如 my-secret-key-888）。在另一台设备输入相同密钥即可同步。
-2. 添加巨鲸监控
-点击 HYPERLIQUID WHALE TRACKER 标题栏右侧的 [+] 按钮。
- * Single: 单个添加，输入地址和备注。
- * Batch: 批量添加，每行一条，格式为 0x地址 备注。
-3. 切换主题
-点击顶部的 👾 / 🌙 / ☀️ 图标可在 像素风、暗黑模式、明亮模式 之间切换。
-4. 截图分享
-点击顶部的 📝 按钮可截取全屏；点击各面板标题栏右侧的小 📝 按钮可截取该独立模块。
-📂 目录结构 (Structure)
-crypto-terminal-v60/
-├── public/              # 静态资源
-├── src/
-│   ├── App.jsx          # 主入口 (包含所有逻辑组件)
-│   ├── main.jsx         # React 渲染入口
-│   └── index.css        # 全局样式重置
-├── index.html           # HTML 模板 (包含外部 Script 引用)
-├── package.json         # 依赖配置
-└── vite.config.js       # Vite 配置
+· ESLint 代码检查
+· Prettier 代码格式化
+· React Hooks 规则检查
 
-🤝 贡献 (Contributing)
-欢迎提交 Issue 或 Pull Request 来改进此终端。
- * Fork 本仓库
- * 创建特性分支 (git checkout -b feature/AmazingFeature)
- * 提交更改 (git commit -m 'Add some AmazingFeature')
- * 推送到分支 (git push origin feature/AmazingFeature)
- * 提交 Pull Request
-📜 许可证 (License)
-Distributed under the MIT License. See LICENSE for more information.
-由 @oAdam 设计与构建 Not Financial Advice. DYOR.
+📄 许可证
 
+本项目采用 MIT 许可证。详见 LICENSE 文件。
+
+🤝 贡献指南
+
+1. Fork 项目仓库
+2. 创建功能分支 (git checkout -b feature/AmazingFeature)
+3. 提交更改 (git commit -m 'Add some AmazingFeature')
+4. 推送到分支 (git push origin feature/AmazingFeature)
+5. 开启 Pull Request
+
+📞 支持与反馈
+
+· 问题报告：使用 GitHub Issues
+· 功能请求：提交 Issue 并标记为 enhancement
+· 安全漏洞：请勿公开报告，通过安全渠道联系
+
+📚 相关资源
+
+· React 官方文档
+· Firebase 文档
+· Binance API 文档
+· TradingView 图表库
+
+---
+
+版本: v56.0
+最后更新: 2024年
+维护者: @oAdam
+兼容性: Chrome, Firefox, Safari, Edge (最新版本)
+
+```
+
+这个README包含了：
+1. 项目概述和核心功能
+2. 技术栈详情
+3. 安装和配置步骤
+4. 各模块详细说明
+5. 安全特性
+6. 移动端优化
+7. 开发指南
+8. 许可证和贡献指南
+
+结构清晰，信息完整，适合开发者快速了解项目并进行二次开发。
+```
